@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bqrolotu4o3bu"]
+
+[ext_resource type="Texture2D" uid="uid://bkxc5jrlw3qgq" path="res://Assets/Sprites/SlimeGroundPound.png" id="1_lusfn"]
+[ext_resource type="Script" uid="uid://ne1qivoj71k4" path="res://Assets/Scripts/characterTrail.gd" id="2_noj2w"]
+
+[node name="characterTrail" type="Node2D" unique_id=995914465]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1000814852]
+modulate = Color(1, 1, 1, 0.36862746)
+texture_filter = 1
+texture = ExtResource("1_lusfn")
+script = ExtResource("2_noj2w")

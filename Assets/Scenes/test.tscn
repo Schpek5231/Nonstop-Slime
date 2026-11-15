@@ -1,0 +1,595 @@
+[gd_scene format=4 uid="uid://qlrbmurmpn80"]
+
+[ext_resource type="PackedScene" uid="uid://db2k5codemmin" path="res://Assets/Scenes/character.tscn" id="1_3fuio"]
+[ext_resource type="PackedScene" uid="uid://3v7qtakbisol" path="res://Assets/Scenes/goal.tscn" id="1_u224g"]
+[ext_resource type="Texture2D" uid="uid://swlckv37kxyi" path="res://Assets/Sprites/TileSprite.png" id="3_u224g"]
+[ext_resource type="PackedScene" uid="uid://blbp2fe4ir8ai" path="res://Assets/Scenes/spike_1.tscn" id="4_uohsq"]
+[ext_resource type="PackedScene" uid="uid://wjvyadtn6a5v" path="res://Assets/Scenes/killbox.tscn" id="5_6hn8k"]
+[ext_resource type="Texture2D" uid="uid://n3xkqd02btp2" path="res://Assets/Sprites/SpikeBackground.png" id="6_vkodi"]
+[ext_resource type="Texture2D" uid="uid://j4o3a1w560s8" path="res://Assets/Sprites/SpikeBackground2.png" id="7_dd11q"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uohsq"]
+texture = ExtResource("3_u224g")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -11.789337, -16, -12.107969)
+1:0/0 = 0
+1:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -11.789337, -16, -12.107969)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 12.426598, -16, 12.426598, 16, -16, 16)
+3:0/0 = 0
+3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-13.063862, -16, 16, -16, 16, 16, -13.063862, 16)
+4:0/0 = 0
+5:0/0 = 0
+6:0/0 = 0
+7:0/0 = 0
+8:0/0 = 0
+8:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -11.789337, -16, -12.107969)
+9:0/0 = 0
+9:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, -11.789337, -16, -12.107969)
+10:0/0 = 0
+10:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_p1bk0"]
+tile_size = Vector2i(32, 32)
+physics_layer_0/collision_layer = 1
+sources/2 = SubResource("TileSetAtlasSource_uohsq")
+
+[node name="Test" type="Node2D" unique_id=1693557119]
+
+[node name="Character" parent="." unique_id=1525019445 instance=ExtResource("1_3fuio")]
+
+[node name="TileMapLayer" type="TileMapLayer" parent="." unique_id=1316671296]
+position = Vector2(0, -480)
+tile_map_data = PackedByteArray("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AAAqAAIAAgAAAAAAAAArAAIAAgAAAAAAAAAsAAIAAgAAAAAAAAAtAAIAAgAAAAAAAAAuAAIAAgAAAAAAAAAvAAIAAgAIAAAAAAAvAPP/AgADAAAAAAAvAPT/AgADAAAAAAAvAPX/AgADAAAAAAAvAPb/AgADAAAAAAAvAPf/AgADAAAAAAAvAPj/AgADAAAAAAAvAPn/AgADAAAAAAAvAPr/AgADAAAAAAAvAPv/AgADAAAAAAAvAPz/AgADAAAAAAAvAP3/AgADAAAAAAAvAP7/AgADAAAAAAAvAP//AgADAAAAAAAvAAAAAgADAAAAAAAvAAEAAgADAAAAAAAvAO3/AgADAAAAAAAvAO7/AgADAAAAAAAvAO//AgADAAAAAAAvAPD/AgADAAAAAAAvAPH/AgADAAAAAAAvAPL/AgADAAAAAAAvAOf/AgADAAAAAAAvAOj/AgADAAAAAAAvAOn/AgADAAAAAAAvAOr/AgADAAAAAAAvAOv/AgADAAAAAAAvAOz/AgADAAAAAAAvAOb/AgAFAAAAAAAoAOb/AgACAAAAAAAoAOf/AgACAAAAAAAoAOj/AgACAAAAAAAoAOn/AgACAAAAAAAoAOr/AgACAAAAAAAoAOv/AgACAAAAAAAoAOz/AgACAAAAAAAoAO3/AgACAAAAAAAoAO7/AgACAAAAAAAoAO//AgACAAAAAAAoAPD/AgACAAAAAAAoAPH/AgACAAAAAAAoAPL/AgACAAAAAAAoAPP/AgACAAAAAAAoAPT/AgACAAAAAAAoAPX/AgACAAAAAAAoAPb/AgACAAAAAAAoAPf/AgACAAAAAAAoAPj/AgACAAAAAAAoAPn/AgACAAAAAAAoAPr/AgACAAAAAAAoAPv/AgACAAAAAAAoAPz/AgACAAAAAAAoANv/AgACAAAAAAAoANz/AgACAAAAAAAoAN3/AgACAAAAAAAoAN7/AgACAAAAAAAoAN//AgACAAAAAAAoAOD/AgACAAAAAAAoAOH/AgACAAAAAAAoAOL/AgACAAAAAAAoAOP/AgACAAAAAAAoAOT/AgACAAAAAAAoAOX/AgACAAAAAAAoAM7/AgACAAAAAAAoAM//AgACAAAAAAAoAND/AgACAAAAAAAoANH/AgACAAAAAAAoANL/AgACAAAAAAAoANP/AgACAAAAAAAoANT/AgACAAAA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AADAAOb/AgAJAAAAAADBAOb/AgABAAAAAADCAOb/AgABAAAAAADDAOb/AgABAAAAAADEAOb/AgABAAAAAADFAOb/AgABAAAAAADGAOb/AgABAAAAAADHAOb/AgABAAAAAADIAOb/AgABAAAAAADJAOb/AgABAAAAAADKAOb/AgABAAAAAADLAOb/AgAAAAAAAADJAOX/AgADAAAAAADJAOT/AgADAAAAAADJAOP/AgADAAAAAADJAOL/AgADAAAAAADJAOH/AgADAAAAAADJAOD/AgADAAAAAADJAN//AgADAAAAAADJAN7/AgADAAAAAADJAN3/AgADAAAAAADJANz/AgADAAAAAADJANv/AgADAAAAAADJANr/AgADAAAAAADJANn/AgADAAAAAADJANj/AgADAAAAAADJANf/AgADAAAAAADJANb/AgADAAAAAADJANT/AgAIAAAAAADDANr/AgAIAAAAAADCANr/AgABAAAAAADBANr/AgABAAAAAADAANr/AgABAAAAAAC/ANr/AgABAAAAAAC+ANr/AgABAAAAAAC9ANr/AgABAAAAAAC8ANr/AgABAAAAAAC7ANr/AgABAAAAAAC6ANr/AgABAAAAAAC5ANr/AgABAAAAAAC4ANr/AgABAAAAAAC3ANr/AgABAAAAAAC2ANr/AgABAAAAAAC1ANr/AgABAAAAAAC0ANr/AgABAAAAAACzANr/AgABAAAAAACyANr/AgABAAAAAACxANr/AgABAAAAAACwANr/AgABAAAAAACvANr/AgABAAAAAACuANr/AgAJAAAAAACtANn/AgACAAAAAACtANj/AgACAAAAAACtANf/AgACAAAAAACtANb/AgACAAAAAACtANX/AgACAAAAAACtANT/AgACAAAAAACtANP/AgACAAAAAACtANL/AgACAAAAAACtANH/AgACAAAAAACtAND/AgACAAAAAACtAM//AgACAAAAAACtAM7/AgACAAAAAACtAM3/AgAEAAAAAACtANr/AgAGAAAAAACyANT/AgAJAAAAAACzANT/AgABAAAAAAC0ANT/AgABAAAAAAC1ANT/AgABAAAAAAC2ANT/AgABAAAAAAC3ANT/AgABAAAAAAC4ANT/AgABAAAAAAC5ANT/AgABAAAAAAC6ANT/AgABAAAAAAC7ANT/AgABAAAAAAC8ANT/AgABAAAAAAC9ANT/AgABAAAAAAC+ANT/AgABAAAAAAC/ANT/AgABAAAAAADAANT/AgABAAAAAADBANT/AgABAAAAAADCANT/AgABAAAAAADDANT/AgABAAAAAADEANT/AgABAAAAAADFANT/AgABAAAAAADGANT/AgABAAAAAADHANT/AgABAAAAAADIANT/AgABAAAAAADJANX/AgAEAAAAAADNANL/AgAJAAAAAADOANL/AgAIAAAAAADSAND/AgAJAAAAAADTAND/AgAIAAAAAADXAM7/AgAJAAAAAADYAM7/AgAIAAAAAADcAMz/AgAJAAAAAADdAMz/AgAIAAAAAADjAMz/AgAKAAAAAADqAMz/AgAKAAAAAADxAMz/AgAKAAAAAAD1AMz/AgADAAAAAAD1AMv/AgADAAAAAAD1AMr/AgADAAAAAAD1AMn/AgADAAAAAAD1AMj/AgADAAAAAAD1AMf/AgADAAAAAAD1AMb/AgADAAAAAAD1AMX/AgADAAAAAAD1AMT/AgADAAAAAAD1AMP/AgADAAAAAAD1AML/AgADAAAAAAD1AMH/AgADAAAAAAD1AMD/AgADAAAAAAD5AMH/AgADAAAAAAD5AMD/AgADAAAAAAD5AL//AgADAAAAAAD5AL7/AgADAAAAAAD5AL3/AgADAAAAAAD5ALz/AgADAAAAAAD5ALv/AgADAAAAAAD5ALr/AgADAAAAAADvAMX/AgACAAAAAADvAMT/AgACAAAAAADvAMP/AgACAAAAAADvAML/AgACAAAAAADvAMH/AgACAAAAAADvAMD/AgACAAAAAADvAL//AgACAAAAAADvAL7/AgACAAAAAADvAL3/AgACAAAAAADvALz/AgACAAAAAADvALv/AgACAAAAAADvALr/AgACAAAAAADvALn/AgAEAAAAAAD5ALn/AgAEAAAAAAD1AL//AgAEAAAAAAD1AM3/AgAGAAAAAAD5AML/AgAGAAAAAAD3AMX/AgAJAAAAAAD4AMX/AgABAAAAAAD5AMX/AgABAAAAAAD6AMX/AgABAAAAAAD7AMX/AgABAAAAAAD8AMX/AgABAAAAAAD9AMX/AgABAAAAAAD+AMX/AgABAAAAAAD/AMX/AgABAAAAAAAAAcX/AgABAAAAAAABAcX/AgABAAAAAAACAcX/AgABAAAAAADvAMb/AgAGAAAAAAADAcX/AgAIAAAAAAAGAcf/AgAJAAAAAAAHAcf/AgABAAAAAAAIAcf/AgABAAAAAAAJAcf/AgABAAAAAAAKAcf/AgABAAAAAAALAcf/AgABAAAAAAAMAcf/AgAIAAAAAAAPAcX/AgAJAAAAAAAQAcX/AgABAAAAAAARAcX/AgABAAAAAAASAcX/AgABAAAAAAATAcX/AgABAAAAAAAUAcX/AgABAAAAAAAVAcX/AgAIAAAAAAAbAcX/AgAKAAAAAAAgAcD/AgADAAAAAAAbAb//AgAKAAAAAAAWAbv/AgACAAAAAAAWAbr/AgACAAAAAAAbAbn/AgAKAAAAAAAgAbX/AgADAAAAAAAgAbT/AgADAAAAAAAbAbP/AgAKAAAAAAAWAa//AgACAAAAAAAWAa7/AgACAAAAAAAbAa3/AgAKAAAAAAAWAbn/AgAEAAAAAAAWAa3/AgAEAAAAAAAgAbP/AgAFAAAAAAAgAb//AgAFAAAAAAAjAa3/AgAJAAAAAAAkAa3/AgABAAAAAAAlAa3/AgABAAAAAAAmAa3/AgABAAAAAAAnAa3/AgABAAAAAAAoAa3/AgABAAAAAAApAa3/AgABAAAAAAAqAa3/AgABAAAAAAArAa3/AgABAAAAAAAsAa3/AgABAAAAAAAtAa3/AgABAAAAAAAuAa3/AgABAAAAAAAvAa3/AgABAAAAAAAwAa3/AgABAAAAAAAxAa3/AgABAAAAAAAyAa3/AgABAAAAAAAzAa3/AgABAAAAAAA0Aa3/AgABAAAAAAA0Aaz/AgADAAAAAAA0Aav/AgADAAAAAAA0Aar/AgADAAAAAAA0Aan/AgADAAAAAAA0Aaj/AgADAAAAAAA0Aaf/AgADAAAAAAA0Aab/AgADAAAAAAA0AaX/AgADAAAAAAA0AaT/AgADAAAAAAA0AaP/AgADAAAAAAA0AaL/AgADAAAAAAA0AaH/AgADAAAAAAA0AaD/AgADAAAAAAA0AZ//AgADAAAAAAA0AZ7/AgADAAAAAAA0AZ3/AgADAAAAAAA0AZz/AgADAAAAAAAgAcH/AgADAAAAAAAWAbD/AgAGAAAAAAAgAbb/AgAGAAAAAAAWAbz/AgAGAAAAAAAgAcL/AgAGAAAAAAA=")
+tile_set = SubResource("TileSet_p1bk0")
+
+[node name="Checkpoints" type="Node" parent="." unique_id=1309140368]
+
+[node name="Goal3" parent="Checkpoints" unique_id=67097904 instance=ExtResource("1_u224g")]
+position = Vector2(2208, -1280)
+
+[node name="Goal" parent="Checkpoints" unique_id=1132238360 instance=ExtResource("1_u224g")]
+position = Vector2(104, 31)
+
+[node name="Goal2" parent="Checkpoints" unique_id=467232979 instance=ExtResource("1_u224g")]
+position = Vector2(295, -416)
+
+[node name="Goal4" parent="Checkpoints" unique_id=712650466 instance=ExtResource("1_u224g")]
+position = Vector2(4032, -1280)
+
+[node name="Goal5" parent="Checkpoints" unique_id=1327223913 instance=ExtResource("1_u224g")]
+position = Vector2(4640, -1280)
+
+[node name="Goal6" parent="Checkpoints" unique_id=1593537128 instance=ExtResource("1_u224g")]
+position = Vector2(5856, -1888)
+
+[node name="Goal7" parent="Checkpoints" unique_id=1459728018 instance=ExtResource("1_u224g")]
+position = Vector2(8032, -2368)
+
+[node name="Goal8" parent="Checkpoints" unique_id=142404933 instance=ExtResource("1_u224g")]
+position = Vector2(9408, -3136)
+
+[node name="Spikes" type="Node" parent="." unique_id=1142233908]
+
+[node name="spike1" parent="Spikes" unique_id=508918383 instance=ExtResource("4_uohsq")]
+position = Vector2(2752, -1280)
+
+[node name="spike2" parent="Spikes" unique_id=91194703 instance=ExtResource("4_uohsq")]
+position = Vector2(2784, -1280)
+
+[node name="spike3" parent="Spikes" unique_id=1812974872 instance=ExtResource("4_uohsq")]
+position = Vector2(2816, -1280)
+
+[node name="spike4" parent="Spikes" unique_id=386942256 instance=ExtResource("4_uohsq")]
+position = Vector2(2848, -1280)
+
+[node name="spike5" parent="Spikes" unique_id=1512214162 instance=ExtResource("4_uohsq")]
+position = Vector2(2880, -1280)
+
+[node name="spike6" parent="Spikes" unique_id=1613882586 instance=ExtResource("4_uohsq")]
+position = Vector2(2912, -1280)
+
+[node name="spike7" parent="Spikes" unique_id=1570580628 instance=ExtResource("4_uohsq")]
+position = Vector2(3104, -1280)
+
+[node name="spike8" parent="Spikes" unique_id=2081629893 instance=ExtResource("4_uohsq")]
+position = Vector2(3136, -1280)
+
+[node name="spike9" parent="Spikes" unique_id=1277356783 instance=ExtResource("4_uohsq")]
+position = Vector2(3168, -1280)
+
+[node name="spike10" parent="Spikes" unique_id=1308501204 instance=ExtResource("4_uohsq")]
+position = Vector2(3200, -1280)
+
+[node name="spike11" parent="Spikes" unique_id=1530470078 instance=ExtResource("4_uohsq")]
+position = Vector2(3232, -1280)
+
+[node name="spike12" parent="Spikes" unique_id=1339630890 instance=ExtResource("4_uohsq")]
+position = Vector2(3264, -1280)
+
+[node name="spike13" parent="Spikes" unique_id=670698562 instance=ExtResource("4_uohsq")]
+position = Vector2(3456, -1280)
+
+[node name="spike14" parent="Spikes" unique_id=1425207283 instance=ExtResource("4_uohsq")]
+position = Vector2(3488, -1280)
+
+[node name="spike15" parent="Spikes" unique_id=859781109 instance=ExtResource("4_uohsq")]
+position = Vector2(3520, -1280)
+
+[node name="spike16" parent="Spikes" unique_id=1154111848 instance=ExtResource("4_uohsq")]
+position = Vector2(3552, -1280)
+
+[node name="spike17" parent="Spikes" unique_id=191223836 instance=ExtResource("4_uohsq")]
+position = Vector2(3584, -1280)
+
+[node name="spike18" parent="Spikes" unique_id=1862472119 instance=ExtResource("4_uohsq")]
+position = Vector2(3616, -1280)
+
+[node name="spike19" parent="Spikes" unique_id=506598257 instance=ExtResource("4_uohsq")]
+position = Vector2(4352, -1280)
+
+[node name="spike20" parent="Spikes" unique_id=1169810251 instance=ExtResource("4_uohsq")]
+position = Vector2(4384, -1280)
+
+[node name="spike21" parent="Spikes" unique_id=245974496 instance=ExtResource("4_uohsq")]
+position = Vector2(4416, -1280)
+
+[node name="spike22" parent="Spikes" unique_id=734908004 instance=ExtResource("4_uohsq")]
+position = Vector2(4512.0005, -1376)
+rotation = -1.4824872
+
+[node name="spike23" parent="Spikes" unique_id=600335961 instance=ExtResource("4_uohsq")]
+position = Vector2(4512, -1408)
+rotation = -1.4824872
+
+[node name="spike24" parent="Spikes" unique_id=1565463697 instance=ExtResource("4_uohsq")]
+position = Vector2(4512, -1440)
+rotation = -1.4824872
+
+[node name="spike25" parent="Spikes" unique_id=1461962155 instance=ExtResource("4_uohsq")]
+position = Vector2(4512, -1472)
+rotation = -1.4824872
+
+[node name="spike26" parent="Spikes" unique_id=725804434 instance=ExtResource("4_uohsq")]
+position = Vector2(5824, -1472)
+
+[node name="spike27" parent="Spikes" unique_id=1810200367 instance=ExtResource("4_uohsq")]
+position = Vector2(5856, -1472)
+
+[node name="spike28" parent="Spikes" unique_id=848048789 instance=ExtResource("4_uohsq")]
+position = Vector2(5888, -1472)
+
+[node name="spike29" parent="Spikes" unique_id=384023024 instance=ExtResource("4_uohsq")]
+position = Vector2(5920, -1472)
+
+[node name="spike30" parent="Spikes" unique_id=1609758063 instance=ExtResource("4_uohsq")]
+position = Vector2(5952, -1472)
+
+[node name="spike31" parent="Spikes" unique_id=833797499 instance=ExtResource("4_uohsq")]
+position = Vector2(5984, -1472)
+
+[node name="spike32" parent="Spikes" unique_id=729486369 instance=ExtResource("4_uohsq")]
+position = Vector2(6016, -1472)
+
+[node name="spike33" parent="Spikes" unique_id=1533282723 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1408)
+rotation = -1.4824872
+
+[node name="spike34" parent="Spikes" unique_id=1461238776 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1439.9999)
+rotation = -1.4824872
+
+[node name="spike35" parent="Spikes" unique_id=1534148003 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1472.0001)
+rotation = -1.4824872
+
+[node name="spike36" parent="Spikes" unique_id=1589729504 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1504)
+rotation = -1.4824872
+
+[node name="spike37" parent="Spikes" unique_id=231041975 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1536)
+rotation = -1.4824872
+
+[node name="spike38" parent="Spikes" unique_id=1722806661 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1567.9999)
+rotation = -1.4824872
+
+[node name="spike39" parent="Spikes" unique_id=663633156 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1600.0001)
+rotation = -1.4824872
+
+[node name="spike40" parent="Spikes" unique_id=131938165 instance=ExtResource("4_uohsq")]
+position = Vector2(6240, -1632)
+rotation = -1.4824872
+
+[node name="spike41" parent="Spikes" unique_id=1498096331 instance=ExtResource("4_uohsq")]
+position = Vector2(5952, -1696)
+
+[node name="spike42" parent="Spikes" unique_id=1943533803 instance=ExtResource("4_uohsq")]
+position = Vector2(5920, -1696)
+
+[node name="spike43" parent="Spikes" unique_id=1323980747 instance=ExtResource("4_uohsq")]
+position = Vector2(5696, -1696)
+
+[node name="spike44" parent="Spikes" unique_id=631422016 instance=ExtResource("4_uohsq")]
+position = Vector2(5664, -1696)
+
+[node name="spike45" parent="Spikes" unique_id=1979764483 instance=ExtResource("4_uohsq")]
+position = Vector2(5632, -1696)
+
+[node name="spike46" parent="Spikes" unique_id=1680286648 instance=ExtResource("4_uohsq")]
+position = Vector2(5600, -1696)
+
+[node name="spike47" parent="Spikes" unique_id=983225253 instance=ExtResource("4_uohsq")]
+position = Vector2(6112, -1696)
+
+[node name="spike48" parent="Spikes" unique_id=835012057 instance=ExtResource("4_uohsq")]
+position = Vector2(6080, -1696)
+
+[node name="spike49" parent="Spikes" unique_id=414608276 instance=ExtResource("4_uohsq")]
+position = Vector2(6144, -1888)
+
+[node name="spike50" parent="Spikes" unique_id=1729233562 instance=ExtResource("4_uohsq")]
+position = Vector2(7676, -2688)
+rotation = -4.736494
+
+[node name="spike51" parent="Spikes" unique_id=239135349 instance=ExtResource("4_uohsq")]
+position = Vector2(7676, -2656)
+rotation = -4.736494
+
+[node name="spike52" parent="Spikes" unique_id=272308292 instance=ExtResource("4_uohsq")]
+position = Vector2(7676, -2624)
+rotation = -4.736494
+
+[node name="spike53" parent="Spikes" unique_id=455606638 instance=ExtResource("4_uohsq")]
+position = Vector2(7676, -2592)
+rotation = -4.736494
+
+[node name="spike54" parent="Spikes" unique_id=411087448 instance=ExtResource("4_uohsq")]
+position = Vector2(8288, -2368)
+
+[node name="spike55" parent="Spikes" unique_id=651344388 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3151)
+rotation = -1.4824872
+
+[node name="spike56" parent="Spikes" unique_id=1599170704 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3183)
+rotation = -1.4824872
+
+[node name="spike57" parent="Spikes" unique_id=866546273 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3215)
+rotation = -1.4824872
+
+[node name="spike58" parent="Spikes" unique_id=1182106378 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3247)
+rotation = -1.4824872
+
+[node name="spike59" parent="Spikes" unique_id=1557438256 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3279)
+rotation = -1.4824872
+
+[node name="spike60" parent="Spikes" unique_id=618930472 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3311)
+rotation = -1.4824872
+
+[node name="spike61" parent="Spikes" unique_id=1082822596 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3343)
+rotation = -1.4824872
+
+[node name="spike62" parent="Spikes" unique_id=2029085225 instance=ExtResource("4_uohsq")]
+position = Vector2(9859, -3375)
+rotation = -1.4824872
+
+[node name="killbox" parent="." unique_id=1846606603 instance=ExtResource("5_6hn8k")]
+position = Vector2(9696, -1856.0001)
+scale = Vector2(246.16035, -4.3223157)
+
+[node name="killbox2" parent="." unique_id=1474171168 instance=ExtResource("5_6hn8k")]
+position = Vector2(4864, -1120)
+scale = Vector2(246.16035, -4.3223157)
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="." unique_id=718637130]
+scale = Vector2(1.3, 1.3)
+transform = Transform2D(1.3, 0, 0, 1.3, 0, 0)
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground" unique_id=1858170982]
+motion_scale = Vector2(0, 0)
+
+[node name="SpikeBackground2" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2" unique_id=1622342161]
+position = Vector2(461.5385, 260)
+texture = ExtResource("7_dd11q")
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground" unique_id=625344368]
+position = Vector2(0, 100)
+scale = Vector2(1.5, 1.5)
+motion_scale = Vector2(0.2, 0.1)
+
+[node name="TextureRect" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=667101845]
+texture_filter = 1
+offset_left = -467.69232
+offset_top = -250.0
+offset_right = 456.30768
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect2" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1006096297]
+texture_filter = 1
+offset_left = 443.0769
+offset_top = -250.0
+offset_right = 1367.0769
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect3" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=2112629644]
+texture_filter = 1
+offset_left = 1353.8462
+offset_top = -250.0
+offset_right = 2277.8462
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect4" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1545513881]
+texture_filter = 1
+offset_left = 2264.6155
+offset_top = -250.0
+offset_right = 3188.6155
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect5" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=746650363]
+texture_filter = 1
+offset_left = 3175.3848
+offset_top = -250.0
+offset_right = 4099.385
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect6" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=229482909]
+texture_filter = 1
+offset_left = 4086.154
+offset_top = -250.0
+offset_right = 5010.1543
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect7" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1232667640]
+texture_filter = 1
+offset_left = 4996.924
+offset_top = -250.0
+offset_right = 5920.924
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect8" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1059004455]
+texture_filter = 1
+offset_left = 5907.693
+offset_top = -250.0
+offset_right = 6831.693
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect9" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=558474876]
+texture_filter = 1
+offset_left = 6818.462
+offset_top = -250.0
+offset_right = 7742.462
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect10" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=499326925]
+texture_filter = 1
+offset_left = 7729.231
+offset_top = -250.0
+offset_right = 8653.23
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect11" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=375297175]
+texture_filter = 1
+offset_left = 8640.001
+offset_top = -250.0
+offset_right = 9564.001
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect12" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=926907841]
+texture_filter = 1
+offset_left = 9550.7705
+offset_top = -250.0
+offset_right = 10474.7705
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect13" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1977059807]
+texture_filter = 1
+offset_left = 10461.539
+offset_top = -250.0
+offset_right = 11385.539
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect14" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1474242665]
+texture_filter = 1
+offset_left = 11372.309
+offset_top = -250.0
+offset_right = 12296.309
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect15" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=438233129]
+texture_filter = 1
+offset_left = 12283.078
+offset_top = -250.0
+offset_right = 13207.078
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect16" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1007936980]
+texture_filter = 1
+offset_left = 13193.848
+offset_top = -250.0
+offset_right = 14117.848
+offset_bottom = 269.0
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect17" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=405198530]
+texture_filter = 1
+offset_left = -467.69223
+offset_top = -769.23096
+offset_right = 456.30777
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect18" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=712015900]
+texture_filter = 1
+offset_left = 443.07693
+offset_top = -769.23096
+offset_right = 1367.0769
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect19" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=2125717592]
+texture_filter = 1
+offset_left = 1353.8461
+offset_top = -769.23096
+offset_right = 2277.8462
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect20" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=2050659092]
+texture_filter = 1
+offset_left = 2264.6157
+offset_top = -769.23096
+offset_right = 3188.6157
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect21" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1079886914]
+texture_filter = 1
+offset_left = 3175.3848
+offset_top = -769.23096
+offset_right = 4099.385
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect22" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=843064298]
+texture_filter = 1
+offset_left = 4086.154
+offset_top = -769.23096
+offset_right = 5010.1543
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect23" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1526461722]
+texture_filter = 1
+offset_left = 4996.924
+offset_top = -769.23096
+offset_right = 5920.924
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect24" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=201305116]
+texture_filter = 1
+offset_left = 5907.693
+offset_top = -769.23096
+offset_right = 6831.693
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect25" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=482927957]
+texture_filter = 1
+offset_left = 6818.462
+offset_top = -769.23096
+offset_right = 7742.462
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect26" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=214846809]
+texture_filter = 1
+offset_left = 7729.2305
+offset_top = -769.23096
+offset_right = 8653.23
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect27" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1327990826]
+texture_filter = 1
+offset_left = 8640.001
+offset_top = -769.23096
+offset_right = 9564.001
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect28" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=887086144]
+texture_filter = 1
+offset_left = 9550.7705
+offset_top = -769.23096
+offset_right = 10474.7705
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect29" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=413414677]
+texture_filter = 1
+offset_left = 10461.539
+offset_top = -769.23096
+offset_right = 11385.539
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect30" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1603488558]
+texture_filter = 1
+offset_left = 11372.309
+offset_top = -769.23096
+offset_right = 12296.309
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect31" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=2048057444]
+texture_filter = 1
+offset_left = 12283.078
+offset_top = -769.23096
+offset_right = 13207.078
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1
+
+[node name="TextureRect32" type="TextureRect" parent="ParallaxBackground/ParallaxLayer" unique_id=1988756815]
+texture_filter = 1
+offset_left = 13193.848
+offset_top = -769.23096
+offset_right = 14117.848
+offset_bottom = -250.23096
+texture = ExtResource("6_vkodi")
+stretch_mode = 1

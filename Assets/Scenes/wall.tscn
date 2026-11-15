@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dipjrqq41i8uq"]
+
+[ext_resource type="Texture2D" uid="uid://d24hsa3u2gmf7" path="res://Assets/Sprites/Sprite-0002-sheet.png" id="1_52c62"]
+[ext_resource type="Script" uid="uid://blw0n5nvvwwdp" path="res://Assets/Scripts/wall.gd" id="1_luog1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_p1bk0"]
+
+[node name="wall" type="Node2D" unique_id=337896742]
+script = ExtResource("1_luog1")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1092553299]
+position = Vector2(-10, -10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D" unique_id=1522634393]
+shape = SubResource("RectangleShape2D_p1bk0")
+
+[node name="Sprite2D" type="Sprite2D" parent="StaticBody2D" unique_id=221676372]
+texture_filter = 1
+position = Vector2(-4.7683716e-07, 4.7683716e-07)
+scale = Vector2(1.25, 1.25)
+texture = ExtResource("1_52c62")

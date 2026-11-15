@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://3v7qtakbisol"]
+
+[ext_resource type="Script" uid="uid://c2w672c6irfsa" path="res://Assets/Scripts/goal.gd" id="1_0u85i"]
+[ext_resource type="Texture2D" uid="uid://dldaf5o4ndwqc" path="res://Assets/Sprites/FlagCheckpoint.png" id="2_j3vw1"]
+[ext_resource type="AudioStream" uid="uid://65yaftggvtt3" path="res://Assets/Sounds/SlimeFlagSFX.mp3" id="3_pmaij"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ol6ss"]
+atlas = ExtResource("2_j3vw1")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vm000"]
+atlas = ExtResource("2_j3vw1")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_jkla6"]
+atlas = ExtResource("2_j3vw1")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_3m385"]
+atlas = ExtResource("2_j3vw1")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_p1bk0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ol6ss")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vm000")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jkla6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_3m385")
+}],
+"loop": 1,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yc1j0"]
+size = Vector2(44, 196)
+
+[node name="Goal" type="Node2D" unique_id=467232979]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=16048075]
+script = ExtResource("1_0u85i")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Area2D" unique_id=1006328268]
+texture_filter = 1
+position = Vector2(-19.000002, -39)
+scale = Vector2(2.46875, 2.46875)
+sprite_frames = SubResource("SpriteFrames_p1bk0")
+frame_progress = 0.430644
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1717410911]
+position = Vector2(-22, -98)
+shape = SubResource("RectangleShape2D_yc1j0")
+
+[node name="FlagSFX" type="AudioStreamPlayer2D" parent="Area2D" unique_id=1358546953]
+stream = ExtResource("3_pmaij")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]

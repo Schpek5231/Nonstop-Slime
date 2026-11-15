@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://cbo4wcrnj2run"]
+
+[ext_resource type="Texture2D" uid="uid://yiep142h0rnf" path="res://Assets/Sprites/Pixel.png" id="1_e46td"]
+[ext_resource type="Script" uid="uid://c77ec3q2ihx1l" path="res://Assets/Scripts/explode_particles.gd" id="2_e46td"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sr7in"]
+
+[node name="characterParticles" type="Node2D" unique_id=1022676713]
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=2060234802]
+material = SubResource("CanvasItemMaterial_sr7in")
+position = Vector2(-1, -1)
+amount = 3000
+texture = ExtResource("1_e46td")
+lifetime = 2.23
+explosiveness = 0.73
+emission_shape = 3
+emission_rect_extents = Vector2(25, 25)
+direction = Vector2(0, -1200)
+spread = 180.0
+initial_velocity_min = 227.72
+initial_velocity_max = 1000.0
+scale_amount_min = 1.5
+scale_amount_max = 10.0
+script = ExtResource("2_e46td")
