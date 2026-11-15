@@ -9,14 +9,15 @@ Spacebar - Jump
 You - AWESOME XD
 
 
-Contributors:
+## Contributors:
 
 Olly Holmes (blazzberry5@gmail.com) - Coder and level maker
 
 Iwan Coles (iwancoles45@gmail.com) - Art, sound effects and music
 
 
-Itch.io - https://schpek5231.itch.io/nonstop-slime
+## Itch.io
+https://schpek5231.itch.io/nonstop-slime
 
 
 (the game freezes on web for some reason, we don't know why and it works in Godot)
